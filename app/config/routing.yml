@@ -1,1 +1,5 @@
+lasynsec_front:
+    resource: "@LasynsecFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
