@@ -1,3 +1,7 @@
 lasynsec_front_homepage:
     path:     /
     defaults: { _controller: LasynsecFrontBundle:Static:homepage }
+
+lasynsec_front_about:
+    path:    /about
+    defaults: { _controller: LasynsecFrontBundle:Static:about }

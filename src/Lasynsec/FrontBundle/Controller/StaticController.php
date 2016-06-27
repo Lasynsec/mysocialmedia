@@ -13,4 +13,9 @@ class StaticController extends Controller
     {
      	return $this->render('LasynsecFrontBundle:Static:homepage.html.twig');
     }
+
+    public function aboutAction()
+    {
+    		return $this->render('LasynsecFrontBundle:Static:about.html.twig');
+    }
 }

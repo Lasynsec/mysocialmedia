@@ -1,1 +1,14 @@
-{% extends ''%}
+{% extends 'LasynsecFrontBundle::layout.html.twig'%}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>My social media</h1>
+			<p>Home page</p>
+			<p><a class="btn btn-primary btn-lg" 
+				  	role="button" 
+				  		href="{{ url('lasynsec_front_about') }}">More information !</a>
+			</p>
+		</div>
+	</div>
+{% endblock content %}
