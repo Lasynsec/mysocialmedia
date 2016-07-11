@@ -3,6 +3,7 @@
 namespace Lasynsec\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Lasynsec\FrontBundle\Entity\User;
 
 /**
  * Status
@@ -50,7 +51,12 @@ class Status
      */
     private $updatedAt;
 
-
+    /**
+    * @ORM\ManyToOne(targetEntity="User", inversedBy="statuses")
+    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+    */
+    private $user;
+    
     /**
      * Get id
      *
@@ -170,4 +176,27 @@ class Status
         $this->updatedAt = new \Datetime();
     }
 
+
+    /**
+     * Set user
+     *
+     * @param \Lasynsec\FrontBundle\Entity\User $user
+     * @return Status
+     */
+    public function setUser(\Lasynsec\FrontBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Lasynsec\FrontBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

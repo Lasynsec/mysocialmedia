@@ -1,0 +1,3 @@
+lasynsec_front_timeline:
+    path:    /timeline
+    defaults: { _controller: LasynsecFrontBundle:Timeline:timeline }
