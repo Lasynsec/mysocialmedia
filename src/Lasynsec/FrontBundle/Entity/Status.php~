@@ -176,4 +176,27 @@ class Status
         $this->updatedAt = new \Datetime();
     }
 
+
+    /**
+     * Set user
+     *
+     * @param \Lasynsec\FrontBundle\Entity\User $user
+     * @return Status
+     */
+    public function setUser(\Lasynsec\FrontBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Lasynsec\FrontBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

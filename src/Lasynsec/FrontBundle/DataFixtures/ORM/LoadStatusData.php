@@ -2,17 +2,19 @@
 
 namespace Ecommerce\EcommerceBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
+use Lasynsec\FrontBundle\Entity\User;
 use Lasynsec\FrontBundle\Entity\Status;
 
-class LoadStatusData implements FixtureInterface
+class LoadStatusData extends AbstractFixture implements OrderFixtureInterface 
 {
   const MAX_NB_STATUS = 30; 
   public function load(ObjectManager $manager) 
   {
-    $faker = \Faker\Factory::create(); // on instancie Faker.
+    $faker = \Faker\Factory::create(); // we instanciate faker.
 
     for($i = 0; $i < self::MAX_NB_STATUS;  ++$i){
 
@@ -20,9 +22,16 @@ class LoadStatusData implements FixtureInterface
       $status->setContent($faker->text(250));
       $status->setDeleted($faker->boolean);
 
+      $user = $this->getReference('user'.rand(0,9)); // We get the linked user associated to the reference.
+      $this->setUSer($user); // We get the proper user.
+
       $manager->persist($status);
     }
 
     $manager->flush();
+  }
+
+  public function getOrder(){
+    return 2; // Will be the second object insered in the database.
   }
 }
