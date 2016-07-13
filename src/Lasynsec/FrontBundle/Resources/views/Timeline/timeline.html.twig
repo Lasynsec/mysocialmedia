@@ -15,6 +15,7 @@
 		<tbody>
 			{% for status in statuses %}
 				<tr>
+					<td>{{ status.user.username }}</td>
 					<td>{{ status.content }}</td>
 					<td>{{ status.deleted ? "supprimé" : "visible" }}</td>
 					<td>{% if status.createdAt %}
