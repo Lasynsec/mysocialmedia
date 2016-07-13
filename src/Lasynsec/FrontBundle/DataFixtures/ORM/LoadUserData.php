@@ -1,15 +1,15 @@
 <?php
 
-namespace Ecommerce\EcommerceBundle\DataFixtures\ORM;
+namespace Lasynsec\FrontBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderFixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Lasynsec\FrontBundle\Entity\User;
 use Lasynsec\FrontBundle\Entity\Status;
 
-class LoadUserData extends AbstractFixture implements OrderFixtureInterface 
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface 
 {
   const MAX_NB_USERS = 10; // Let's create 10 users.
 
@@ -23,7 +23,7 @@ class LoadUserData extends AbstractFixture implements OrderFixtureInterface
       $user->setUsername($faker->username); // names are adding randomly.
 
       $manager->persist($user);
-      $this->addReference('user'.$i.$user); // we add a reference on the object to easily get it.
+      $this->addReference('user'.$i,$user); // we add a reference on the object to easily get it.
     }
 
     $manager->flush();
