@@ -23,6 +23,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
       $user->setUsername($faker->username); // names are adding randomly.
 
       $manager->persist($user);
+
       $this->addReference('user'.$i, $user); // we add a reference on the object to easily get it.
     }
 
