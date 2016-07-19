@@ -16,10 +16,14 @@
 		<tbody>
 			{% for status in statuses %}
 				<tr>
+<<<<<<< HEAD
 					<td>{% if status.user %}
 							{{ status.user.username }}
 						{% endif %}
 					</td>
+=======
+					<td>{{ status.user.username }}</td>
+>>>>>>> origin/master
 					<td>{{ status.content }}</td>
 					<td>{{ status.deleted ? "supprimé" : "visible" }}</td>
 					<td>{% if status.createdAt %}

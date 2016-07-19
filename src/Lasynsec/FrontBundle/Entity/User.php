@@ -5,6 +5,7 @@ namespace Lasynsec\FrontBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Lasynsec\FrontBundle\Entity\Status;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
 * @ORM\Entity;
@@ -36,7 +37,11 @@ class User
     public function __construct()
     {
         //parent::__construct();
+<<<<<<< HEAD
         $this->statuses = new ArrayCollection();
+=======
+        $this->statues = new ArrayCollection();
+>>>>>>> origin/master
     }
 
     /**
