@@ -38,8 +38,11 @@ class User
     {
         //parent::__construct();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->statuses = new ArrayCollection();
 =======
+=======
+>>>>>>> e53cc39d2fbdba92bfb8bc4feee7127b915827e3
         $this->statues = new ArrayCollection();
 >>>>>>> origin/master
     }
