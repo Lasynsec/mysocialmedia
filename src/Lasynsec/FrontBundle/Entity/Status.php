@@ -4,6 +4,7 @@ namespace Lasynsec\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Lasynsec\FrontBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Status

@@ -1,15 +1,15 @@
 <?php
 
-namespace Ecommerce\EcommerceBundle\DataFixtures\ORM;
+namespace Lasynsec\FrontBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderFixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Lasynsec\FrontBundle\Entity\User;
 use Lasynsec\FrontBundle\Entity\Status;
 
-class LoadStatusData extends AbstractFixture implements OrderFixtureInterface 
+class LoadStatusData extends AbstractFixture implements OrderedFixtureInterface 
 {
   const MAX_NB_STATUS = 30; 
   public function load(ObjectManager $manager) 
@@ -23,7 +23,7 @@ class LoadStatusData extends AbstractFixture implements OrderFixtureInterface
       $status->setDeleted($faker->boolean);
 
       $user = $this->getReference('user'.rand(0,9)); // We get the linked user associated to the reference.
-      $this->setUSer($user); // We get the proper user.
+      $status->setUser($user); // We get the proper user.
 
       $manager->persist($status);
     }

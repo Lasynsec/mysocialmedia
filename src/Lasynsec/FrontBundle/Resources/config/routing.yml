@@ -5,3 +5,7 @@ lasynsec_front_homepage:
 lasynsec_front_about:
     path:    /about
     defaults: { _controller: LasynsecFrontBundle:Static:about }
+
+lasynsec_front_user_timeline:
+    path:    /timeline{userId}
+    defaults: { _controller: LasynsecFrontBundle:Timeline:userTimeline }
