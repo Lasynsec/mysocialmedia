@@ -3,6 +3,7 @@
 namespace Lasynsec\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Lasynsec\FrontBundle\Entity\Status;
 
 /**
@@ -30,12 +31,12 @@ class User
     /**
     * @ORM\OneToMany(targetEntity="Status", mappedBy="user")
     */
-    private $statues;
+    private $statuses;
 
     public function __construct()
     {
         parent::__construct();
-        $this->statues = new ArrayCollection();
+        $this->statuses = new ArrayCollection();
     }
 
     /**
@@ -85,35 +86,58 @@ class User
     }
 
     /**
-     * Add statues
+     * Add statuses
      *
-     * @param \Lasynsec\FrontBundle\Entity\Status $statues
+     * @param \Lasynsec\FrontBundle\Entity\Status $statuses
      * @return User
      */
-    public function addStatue(\Lasynsec\FrontBundle\Entity\Status $statues)
+    public function addStatue(\Lasynsec\FrontBundle\Entity\Status $statuses)
     {
-        $this->statues[] = $statues;
+        $this->statuses[] = $statuses;
 
         return $this;
     }
 
     /**
-     * Remove statues
+     * Remove statuses
      *
-     * @param \Lasynsec\FrontBundle\Entity\Status $statues
+     * @param \Lasynsec\FrontBundle\Entity\Status $statuses
      */
-    public function removeStatue(\Lasynsec\FrontBundle\Entity\Status $statues)
+    public function removeStatue(\Lasynsec\FrontBundle\Entity\Status $statuses)
     {
-        $this->statues->removeElement($statues);
+        $this->statuses->removeElement($statuses);
     }
 
     /**
-     * Get statues
+     * Get statuses
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStatues()
+    public function getStatuses()
     {
-        return $this->statues;
+        return $this->statuses;
+    }
+
+    /**
+     * Add statuses
+     *
+     * @param \Lasynsec\FrontBundle\Entity\Status $statuses
+     * @return User
+     */
+    public function addStatus(\Lasynsec\FrontBundle\Entity\Status $statuses)
+    {
+        $this->statuses[] = $statuses;
+
+        return $this;
+    }
+
+    /**
+     * Remove statuses
+     *
+     * @param \Lasynsec\FrontBundle\Entity\Status $statuses
+     */
+    public function removeStatus(\Lasynsec\FrontBundle\Entity\Status $statuses)
+    {
+        $this->statuses->removeElement($statuses);
     }
 }
